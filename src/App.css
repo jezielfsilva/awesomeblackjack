@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #0d5e06;
+  justify-content: flex-start;
+  background-color: #117908;
 }
 
 .main-title {
@@ -22,12 +22,64 @@
 
 .text {
   color: #ffffff;
+  text-shadow: 1px 1px 3px black;
 }
 
 .container-cards {
-  width: 85vw;
-  height: 60vh;
+  width: 52vw;
+  height: 40vh;
   background-color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.card {
+  position: relative;
+  width: 120px;
+  height: 190px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.suit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4rem;
+  transform: translate(-50%, -50%);
+}
+
+.suit-clubs, .suit-spades {
+  color: #000000;
+}
+
+.suit-hearts, .suit-diams {
+  color: #ff0000;
+}
+
+.clubs, .spades {
+  color: #000000;
+  font-size: 2.5rem;
+}
+
+.hearts, .diams {
+  color: #ff0000;
+  font-size: 2.5rem;
+}
+
+.top-value {
+  position: absolute;
+  top: 1%;
+  left: 5%;
+}
+
+.bottom-value {
+  position: absolute;
+  bottom: 1%;
+  right: 5%;
+  transform: rotate(180deg);
 }
 
 .container-buttons {
@@ -45,4 +97,5 @@
   border: 1px solid #922105;
   border-radius: 2px;
   color: #ffffff;
+  box-shadow: 1px 1px 3px black;
 }
