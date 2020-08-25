@@ -26,11 +26,18 @@
 }
 
 .container-cards {
+  width: 60vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-cards {
   width: 52vw;
   height: 40vh;
-  background-color: aliceblue;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
 }
 
@@ -41,13 +48,14 @@
   border: 1px solid #000000;
   border-radius: 8px;
   background-color: #ffffff;
+  margin-left: 0.5rem;
 }
 
 .suit {
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 50%;
-  font-size: 4rem;
+  font-size: 7rem;
   transform: translate(-50%, -50%);
 }
 
