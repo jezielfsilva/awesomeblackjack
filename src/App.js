@@ -10,7 +10,8 @@ class App extends React.Component {
       suits: ["clubs", "hearts", "spades", "diams"],
       cards: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
       deck: [],
-      userCards: []
+      userCards: [],
+      points: 0
     }
   }
 
@@ -78,6 +79,10 @@ class App extends React.Component {
         </div>
       </div>
     );
+  };
+
+  pointCount = () => {
+    
   };
 
   render() {
