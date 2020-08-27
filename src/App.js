@@ -11,7 +11,9 @@ class App extends React.Component {
       cards: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
       deck: [],
       userCards: [],
-      points: 0
+      points: 0,
+      winner: false,
+      loser: false
     }
   }
 
@@ -60,10 +62,35 @@ class App extends React.Component {
   };
 
   newCard = () => {
+    const { points } = this.state;
     const card = this.getCard();
 
+    const allPoints = points + card.value;
+
     this.setState({
-      userCards: this.state.userCards.concat(card)
+      userCards: this.state.userCards.concat(card),
+      points: this.state.points + card.value
+    });
+
+    if (allPoints > 21) {
+      this.setState({
+        loser: true
+      });
+    }
+
+    if (allPoints === 21) {
+      this.setState({
+        winner: true
+      });
+    }
+  };
+
+  newGame = () => {
+    this.setState({
+      userCards: [],
+      points: 0,
+      winner: false,
+      loser: false
     });
   };
 
@@ -81,25 +108,24 @@ class App extends React.Component {
     );
   };
 
-  pointCount = () => {
-    
-  };
-
   render() {
-    const { deck } = this.state;
+    const { deck, points, winner, loser } = this.state;
 
     return (
       <div className="App">
-        <h1 className="main-title">AWESOME 21</h1>
-        <h2 className="secondary-title">BLACKJACK!</h2>
+        <h1 className="main-title">AWESOME 21!<span className="secondary-title">BLACKJACK!</span></h1>
         <p className="text">Choose a card and good luck!</p>
         <div className="container-cards">
           {deck.length > 0 ? this.renderGame() : <span>criando baralho</span>}
         </div>
+        <span className="text-number">{points}</span>
+        {winner && <span className="text-win">Parabéns, você tem sorte!</span>}
+        {loser && <span className="text-lose">mais sorte na próxima vez,tente novamente!</span>}
         <div className="container-buttons">
-          <button className="click" onClick={this.newCard}>Get Card</button>
-          <button className="click2">Play Again</button>
-          <button className="click3">Stand</button>
+          {!winner && !loser && (
+            <button className="click" onClick={this.newCard}>Get Card</button>
+          )}
+          <button className="click2" onClick={this.newGame}>Play Again</button>
         </div>
       </div>
     );
