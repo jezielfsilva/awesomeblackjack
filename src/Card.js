@@ -21,9 +21,11 @@ class Card extends Component {
 
         return (
             <div className="card">
-                <span className={`suit suit-${card.suit}`}>
-                    {this.chooseSuit(card.suit)}
-                </span>
+                <div className="inside-card">
+                    <span className={`suit suit-${card.suit}`}>
+                        {this.chooseSuit(card.suit)}
+                    </span>
+                </div>
                 <span className={`top-value ${card.suit}`}>{card.label}</span>
                 <span className={`bottom-value ${card.suit}`}>{card.label}</span>
             </div>
